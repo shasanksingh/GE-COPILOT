@@ -1,0 +1,153 @@
+$ColorBlack : #343541;
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-family: 'Lato', sans-serif;
+
+  // scroll start;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &:is(.light)::-webkit-scrollbar-thumb {
+    background: rgba(217, 217, 227, .8);
+    border-radius: 30px;
+
+    &:hover {
+      background: rgba(236, 236, 241, 1);
+    }
+  }
+
+  &:is(.dark)::-webkit-scrollbar-thumb {
+    background: rgba(86, 88, 105, 1);
+    border-radius: 30px;
+
+    &:hover {
+      background: rgba(172, 172, 190, 1);
+    }
+  }
+
+  //scroll end
+
+  &:is(.light) {
+    // body background
+    background: white;
+
+    .currentColor {
+      color: $ColorBlack;
+    }
+  }
+
+  &:is(.dark) {
+    // body background
+    background: rgba(52, 53, 65, 1);
+
+    .currentColor {
+      color: #ECECF1;
+    }
+  }
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 260px auto;
+
+  @media screen and (max-width:767px) {
+    grid-template-columns: 100%;
+  }
+}
+/* style.scss */
+.theme-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+
+  &:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    transform: scale(1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.5);
+  }
+}
+// General styles
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.theme-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+// Dark mode styles
+.dark {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+// Light mode styles
+.light {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+// Input field styles
+.input-field {
+  border: 1px solid #cccccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.input-field:focus {
+  background-color: #ffffff;
+  outline: none;
+  border-color: #2196f3;
+}
